@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/kali/VSCodeProjects/img_parsing_server_ex/build/src",
+  "command": "/usr/bin/g++  -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/img_parsing_server_ex.dir/main.cpp.o -c /home/kali/VSCodeProjects/img_parsing_server_ex/src/main.cpp",
+  "file": "/home/kali/VSCodeProjects/img_parsing_server_ex/src/main.cpp",
+  "output": "src/CMakeFiles/img_parsing_server_ex.dir/main.cpp.o"
+},
+{
+  "directory": "/home/kali/VSCodeProjects/img_parsing_server_ex/build/src",
+  "command": "/usr/bin/g++  -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/img_parsing_server_ex.dir/parserCmd.cpp.o -c /home/kali/VSCodeProjects/img_parsing_server_ex/src/parserCmd.cpp",
+  "file": "/home/kali/VSCodeProjects/img_parsing_server_ex/src/parserCmd.cpp",
+  "output": "src/CMakeFiles/img_parsing_server_ex.dir/parserCmd.cpp.o"
+},
+{
+  "directory": "/home/kali/VSCodeProjects/img_parsing_server_ex/build/src",
+  "command": "/usr/bin/g++  -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/img_parsing_server_ex.dir/server.cpp.o -c /home/kali/VSCodeProjects/img_parsing_server_ex/src/server.cpp",
+  "file": "/home/kali/VSCodeProjects/img_parsing_server_ex/src/server.cpp",
+  "output": "src/CMakeFiles/img_parsing_server_ex.dir/server.cpp.o"
+},
+{
+  "directory": "/home/kali/VSCodeProjects/img_parsing_server_ex/build/src",
+  "command": "/usr/bin/g++  -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o -c /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_message.cc",
+  "file": "/home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_message.cc",
+  "output": "src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o"
+},
+{
+  "directory": "/home/kali/VSCodeProjects/img_parsing_server_ex/build/src",
+  "command": "/usr/bin/g++  -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o -c /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_server.cc",
+  "file": "/home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_server.cc",
+  "output": "src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o"
+}
+]

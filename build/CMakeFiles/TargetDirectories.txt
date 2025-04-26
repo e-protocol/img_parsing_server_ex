@@ -1,0 +1,5 @@
+/home/kali/VSCodeProjects/img_parsing_server_ex/build/CMakeFiles/edit_cache.dir
+/home/kali/VSCodeProjects/img_parsing_server_ex/build/CMakeFiles/rebuild_cache.dir
+/home/kali/VSCodeProjects/img_parsing_server_ex/build/src/CMakeFiles/img_parsing_server_ex.dir
+/home/kali/VSCodeProjects/img_parsing_server_ex/build/src/CMakeFiles/edit_cache.dir
+/home/kali/VSCodeProjects/img_parsing_server_ex/build/src/CMakeFiles/rebuild_cache.dir
