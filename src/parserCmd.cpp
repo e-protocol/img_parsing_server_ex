@@ -18,7 +18,7 @@ void ParserCmd::parseInput()
 {
 	while(true)
 	{
-		printf("->");
+		PrintTerminal("->", false);
 		std::vector<std::string> args;
 		ReadInput(args);
 
@@ -30,11 +30,9 @@ void ParserCmd::parseInput()
 			case(3): PrintVersion(); break;
 			case(4): server_->SetPort(args); break;
 			case(5): PrintPort(); break;
-			case(6): server_->SetHost(args);break;
-			case(7): server_->GetHost(); break;
-			case(8): server_->Start(); break;
-			case(9): server_->Stop(); break;
-			default: printf("Invalid command!\n"); break;
+			case(6): server_->Start(); break;
+			case(7): server_->Stop(); break;
+			default: PrintTerminal("Invalid command!\n"); break;
 		}
 	}
 }
@@ -46,7 +44,7 @@ void ParserCmd::parseInput()
 void ParserCmd::ReadInput(std::vector<std::string>& args)
 {
   std::string input;
-  std::getline(std::cin, input);
+	getline(std::cin, input);
   std::stringstream ss(input);
   while(ss >> input) args.emplace_back(input);
 }
@@ -95,7 +93,7 @@ void ParserCmd::ReadInput(std::vector<std::string>& args)
 	 */
 	void ParserCmd::PrintHelp()
 	{
-		printf("Command list:\n");
+		PrintTerminal("Command list:\n");
 
 		auto print_func = [this](int i)->std::string
 		{
@@ -109,17 +107,15 @@ void ParserCmd::ReadInput(std::vector<std::string>& args)
 				case(3): str += " - view app version"; break;
 				case(4): str += " - set listening port, ex.: set port 8080"; break;
 				case(5): str += " - get listeninig port, ex.: get port"; break;
-				case(6): str += " - set host, ex.: set host 0.0.0.0"; break;
-				case(7): str += " - get host, ex.: get host"; break;
-				case(8): str += " - starts server"; break;
-				case(9): str += " - stops server"; break;
+				case(6): str += " - starts server"; break;
+				case(7): str += " - stops server"; break;
 				default: break;
 			}
 			return str;
 		};
 
 		for(int i = 0; i < CMD_SIZE; ++i)
-			printf("%s\n", print_func(i).c_str());
+			PrintTerminal(print_func(i));
 	}
 
   /**
@@ -129,8 +125,9 @@ void ParserCmd::ReadInput(std::vector<std::string>& args)
 
 	void ParserCmd::PrintVersion()
 	{
-		printf("opencv image parsing server\n");
-		printf("version 1.0\n");
+		PrintTerminal("opencv image parsing server");
+		PrintTerminal("version 1.0");
+		PrintTerminal("Using Boost v" + std::to_string(BOOST_VERSION));
   }
 
 
@@ -140,5 +137,5 @@ void ParserCmd::ReadInput(std::vector<std::string>& args)
 	 */
 	void ParserCmd::PrintPort() 
   {
-		 printf("listen port: %d\n", server_->GetPort());
+		 PrintTerminal("listen port: " + std::to_string(server_->GetPort()));
   }

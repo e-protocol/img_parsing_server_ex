@@ -114,41 +114,26 @@ src/CMakeFiles/img_parsing_server_ex.dir/server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/img_parsing_server_ex.dir/server.cpp.s"
 	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kali/VSCodeProjects/img_parsing_server_ex/src/server.cpp -o CMakeFiles/img_parsing_server_ex.dir/server.cpp.s
 
-src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o: src/CMakeFiles/img_parsing_server_ex.dir/flags.make
-src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o: /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_message.cc
-src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o: src/CMakeFiles/img_parsing_server_ex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kali/VSCodeProjects/img_parsing_server_ex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o"
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o -MF CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o.d -o CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o -c /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_message.cc
+src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.o: src/CMakeFiles/img_parsing_server_ex.dir/flags.make
+src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.o: /home/kali/VSCodeProjects/img_parsing_server_ex/src/session.cpp
+src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.o: src/CMakeFiles/img_parsing_server_ex.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kali/VSCodeProjects/img_parsing_server_ex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.o"
+	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.o -MF CMakeFiles/img_parsing_server_ex.dir/session.cpp.o.d -o CMakeFiles/img_parsing_server_ex.dir/session.cpp.o -c /home/kali/VSCodeProjects/img_parsing_server_ex/src/session.cpp
 
-src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.i"
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_message.cc > CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.i
+src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/img_parsing_server_ex.dir/session.cpp.i"
+	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kali/VSCodeProjects/img_parsing_server_ex/src/session.cpp > CMakeFiles/img_parsing_server_ex.dir/session.cpp.i
 
-src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.s"
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_message.cc -o CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.s
-
-src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o: src/CMakeFiles/img_parsing_server_ex.dir/flags.make
-src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o: /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_server.cc
-src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o: src/CMakeFiles/img_parsing_server_ex.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kali/VSCodeProjects/img_parsing_server_ex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o"
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o -MF CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o.d -o CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o -c /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_server.cc
-
-src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.i"
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_server.cc > CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.i
-
-src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.s"
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_server.cc -o CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.s
+src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/img_parsing_server_ex.dir/session.cpp.s"
+	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kali/VSCodeProjects/img_parsing_server_ex/src/session.cpp -o CMakeFiles/img_parsing_server_ex.dir/session.cpp.s
 
 # Object files for target img_parsing_server_ex
 img_parsing_server_ex_OBJECTS = \
 "CMakeFiles/img_parsing_server_ex.dir/main.cpp.o" \
 "CMakeFiles/img_parsing_server_ex.dir/parserCmd.cpp.o" \
 "CMakeFiles/img_parsing_server_ex.dir/server.cpp.o" \
-"CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o" \
-"CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o"
+"CMakeFiles/img_parsing_server_ex.dir/session.cpp.o"
 
 # External object files for target img_parsing_server_ex
 img_parsing_server_ex_EXTERNAL_OBJECTS =
@@ -156,8 +141,7 @@ img_parsing_server_ex_EXTERNAL_OBJECTS =
 build/img_parsing_server_ex: src/CMakeFiles/img_parsing_server_ex.dir/main.cpp.o
 build/img_parsing_server_ex: src/CMakeFiles/img_parsing_server_ex.dir/parserCmd.cpp.o
 build/img_parsing_server_ex: src/CMakeFiles/img_parsing_server_ex.dir/server.cpp.o
-build/img_parsing_server_ex: src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o
-build/img_parsing_server_ex: src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o
+build/img_parsing_server_ex: src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.o
 build/img_parsing_server_ex: src/CMakeFiles/img_parsing_server_ex.dir/build.make
 build/img_parsing_server_ex: src/CMakeFiles/img_parsing_server_ex.dir/compiler_depend.ts
 build/img_parsing_server_ex: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.10.0
@@ -216,7 +200,7 @@ build/img_parsing_server_ex: /usr/lib/x86_64-linux-gnu/libopencv_photo.so.4.10.0
 build/img_parsing_server_ex: /usr/lib/x86_64-linux-gnu/libopencv_imgproc.so.4.10.0
 build/img_parsing_server_ex: /usr/lib/x86_64-linux-gnu/libopencv_core.so.4.10.0
 build/img_parsing_server_ex: src/CMakeFiles/img_parsing_server_ex.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kali/VSCodeProjects/img_parsing_server_ex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable ../build/img_parsing_server_ex"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kali/VSCodeProjects/img_parsing_server_ex/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable ../build/img_parsing_server_ex"
 	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/img_parsing_server_ex.dir/link.txt --verbose=$(VERBOSE)
 	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build/src && /usr/bin/cmake -E copy /home/kali/VSCodeProjects/img_parsing_server_ex/src/haarcascade_frontalface_alt.xml /home/kali/VSCodeProjects/img_parsing_server_ex/build/build
 

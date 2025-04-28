@@ -202,53 +202,29 @@ server.cpp.s:
 	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/img_parsing_server_ex.dir/build.make src/CMakeFiles/img_parsing_server_ex.dir/server.cpp.s
 .PHONY : server.cpp.s
 
-thirdparty/http_server/http_message.o: thirdparty/http_server/http_message.cc.o
-.PHONY : thirdparty/http_server/http_message.o
+session.o: session.cpp.o
+.PHONY : session.o
 
 # target to build an object file
-thirdparty/http_server/http_message.cc.o:
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/img_parsing_server_ex.dir/build.make src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o
-.PHONY : thirdparty/http_server/http_message.cc.o
+session.cpp.o:
+	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/img_parsing_server_ex.dir/build.make src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.o
+.PHONY : session.cpp.o
 
-thirdparty/http_server/http_message.i: thirdparty/http_server/http_message.cc.i
-.PHONY : thirdparty/http_server/http_message.i
-
-# target to preprocess a source file
-thirdparty/http_server/http_message.cc.i:
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/img_parsing_server_ex.dir/build.make src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.i
-.PHONY : thirdparty/http_server/http_message.cc.i
-
-thirdparty/http_server/http_message.s: thirdparty/http_server/http_message.cc.s
-.PHONY : thirdparty/http_server/http_message.s
-
-# target to generate assembly for a file
-thirdparty/http_server/http_message.cc.s:
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/img_parsing_server_ex.dir/build.make src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.s
-.PHONY : thirdparty/http_server/http_message.cc.s
-
-thirdparty/http_server/http_server.o: thirdparty/http_server/http_server.cc.o
-.PHONY : thirdparty/http_server/http_server.o
-
-# target to build an object file
-thirdparty/http_server/http_server.cc.o:
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/img_parsing_server_ex.dir/build.make src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o
-.PHONY : thirdparty/http_server/http_server.cc.o
-
-thirdparty/http_server/http_server.i: thirdparty/http_server/http_server.cc.i
-.PHONY : thirdparty/http_server/http_server.i
+session.i: session.cpp.i
+.PHONY : session.i
 
 # target to preprocess a source file
-thirdparty/http_server/http_server.cc.i:
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/img_parsing_server_ex.dir/build.make src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.i
-.PHONY : thirdparty/http_server/http_server.cc.i
+session.cpp.i:
+	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/img_parsing_server_ex.dir/build.make src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.i
+.PHONY : session.cpp.i
 
-thirdparty/http_server/http_server.s: thirdparty/http_server/http_server.cc.s
-.PHONY : thirdparty/http_server/http_server.s
+session.s: session.cpp.s
+.PHONY : session.s
 
 # target to generate assembly for a file
-thirdparty/http_server/http_server.cc.s:
-	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/img_parsing_server_ex.dir/build.make src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.s
-.PHONY : thirdparty/http_server/http_server.cc.s
+session.cpp.s:
+	cd /home/kali/VSCodeProjects/img_parsing_server_ex/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/img_parsing_server_ex.dir/build.make src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.s
+.PHONY : session.cpp.s
 
 # Help Target
 help:
@@ -268,12 +244,9 @@ help:
 	@echo "... server.o"
 	@echo "... server.i"
 	@echo "... server.s"
-	@echo "... thirdparty/http_server/http_message.o"
-	@echo "... thirdparty/http_server/http_message.i"
-	@echo "... thirdparty/http_server/http_message.s"
-	@echo "... thirdparty/http_server/http_server.o"
-	@echo "... thirdparty/http_server/http_server.i"
-	@echo "... thirdparty/http_server/http_server.s"
+	@echo "... session.o"
+	@echo "... session.i"
+	@echo "... session.s"
 .PHONY : help
 
 

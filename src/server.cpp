@@ -1,16 +1,20 @@
 #include "include/server.h"
-#include "include/fileManager.hpp"
 
-/**
- * @brief stop server before destruction
- */
-Server::~Server()
-{
-  if(is_run)
-    server_.get()->Stop();
-}
+  /**
+   * @brief stop server before destruction
+   */
+  Server::~Server()
+  {
+    if(is_run)
+    {
+      Stop();
+      while(is_run);
+    }
+    else
+      PrintTerminal("server shutdown");
+  }
 
-/**
+  /**
    * @brief Set the Port object, value validation
    * 
    * @param args command splitted into arguments
@@ -23,26 +27,8 @@ Server::~Server()
     }
     catch(const std::exception& e)
     {
-      printf("Invalid argument\n");
+      PrintTerminal("Invalid argument");
     }
-  }
-
-  /**
-   * @brief Set the Host object, uses ipv4 validation
-   * 
-   * @param args command splitted into arguments
-   */
-  void Server::SetHost(std::vector<std::string>& args)
-  {
-    bool ok = ValidateIp(args[1]);
-    
-    if(!ok)
-    {
-      printf("Invalid argument\n");
-      return;
-    }
-
-    host_ = args[1];
   }
 
     /**
@@ -53,118 +39,59 @@ Server::~Server()
   int Server::GetPort() { return port_; }
 
   /**
-   * @brief static func to validate ipv4, remove first zeros
-   * 
-   * @return true if ok and false if any symbol is non-numeric
-   */
-  bool Server::ValidateIp(std::string& ip)
-  {
-    std::vector<std::string> ip_num;
-
-    for(int i = 0, j = 0; i < ip.size(); ++i)
-      if(ip[i] == '.' || i + 1 == ip.size())
-      {
-        ip_num.push_back(ip.substr(j, i));
-        j = i + 1;
-      }
-
-    if(ip_num.size() != 4)
-      return false;
-
-    std::string correct_ip;
-
-    for(int i = 0; i < ip_num.size(); ++i)
-    {
-      int num;
-      try
-      {
-        num = std::atoi(ip_num[i].c_str());
-
-        if(num < 0 || num > 255)
-          throw std::bad_cast();
-      }
-      catch(std::exception& e)
-      {
-        return false;
-      }
-
-      correct_ip += std::to_string(num);
-      if(i + 1 != ip_num.size()) correct_ip += '.';
-    }
-    std::swap(ip, correct_ip);
-    return true;
-  }
-
-  /**
-   * @brief Get the Host object
-   * 
-   */
-  void Server::GetHost(){ std::cout << host_ << std::endl; }
-
-  /**
-   * @brief start server, required registered handler before server starts for processing client requests
+   * @brief start server in separate thread by calling Run()
    */
   void Server::Start()
   {
     if(is_run)
-      return;
+    {
+      Stop();
+      while(is_run);
+    }
     
-    using namespace simple_http_server;
-    printf("start server...host: %s port: %d\n", host_.c_str(), port_);
-    server_.reset();
-    server_ = std::make_shared<HttpServer>(host_, port_);
-    is_run = true;
-    auto resp_func = [this](const HttpRequest& request) -> HttpResponse 
-    { return ProcessRequest(request); };
-
-    server_.get()->RegisterHttpRequestHandler("/", HttpMethod::POST, resp_func);
-
-    try
-    {
-      server_.get()->Start();
-    }
-    catch(const std::exception& e)
-    {
-      printf("%s", e.what());
-      is_run = false;
-    }
+    thread_ = std::make_shared<std::thread>(&Server::Run, this);
   }
 
   /**
-   * @brief stop server
+   * @brief  stop server
    */
   void Server::Stop()
   {
+    accp_->close();
+    ioc_.stop();
+    thread_->join();
+    thread_.reset();
     is_run = false;
-    printf("server stoped\n");
-
-    try
-    {
-      server_.get()->Stop();
-    }
-    catch(const std::exception& e)
-    {
-      printf("%s", e.what());
-    }
+    PrintTerminal("server shutdown");
   }
 
   /**
-   * @brief method for processing client request
+   * @brief start server listening port
    */
-  simple_http_server::HttpResponse Server::ProcessRequest(const simple_http_server::HttpRequest& req)
+  void Server::DoAccept()
   {
-    //save file
-    //std::string path;
-    //FileManager::saveFile(req.content().c_str(), path);
+    accp_->async_accept(accp_->get_executor(),[this](beast::error_code e, asio::ip::tcp::socket sock)
+    {
+      if(!e)
+      {
+        std::make_shared<Session>(std::move(sock))->Run();
+        DoAccept(); //allow next client connection
+      }
+      else if(e != asio::error::operation_aborted)
+        WriteLog("Error Accept: " + e.message());
+    });
+  }
 
-    //process image
-    //FaceDetectorImg fd(path);
-    //fd.Process();
-
-    //response to client
-    simple_http_server::HttpResponse response(simple_http_server::HttpStatusCode::Ok);
-    std::string content;
-    response.SetHeader("Content-Type", "text/plain");
-    response.SetContent(content);
-    return response;
+  /**
+   * @brief start server
+   */
+  void Server::Run()
+  {
+    is_run = true;
+    accp_.reset();
+    accp_ = std::make_shared<asio::ip::tcp::acceptor>(ioc_, asio::ip::tcp::endpoint(asio::ip::tcp::v4(), port_));
+    beast::error_code e;
+    WriteLog("Server start. Listen port: " + std::to_string(port_));
+    DoAccept();
+    ioc_.run();
   }

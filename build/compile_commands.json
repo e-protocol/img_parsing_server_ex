@@ -19,14 +19,8 @@
 },
 {
   "directory": "/home/kali/VSCodeProjects/img_parsing_server_ex/build/src",
-  "command": "/usr/bin/g++  -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o -c /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_message.cc",
-  "file": "/home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_message.cc",
-  "output": "src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o"
-},
-{
-  "directory": "/home/kali/VSCodeProjects/img_parsing_server_ex/build/src",
-  "command": "/usr/bin/g++  -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o -c /home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_server.cc",
-  "file": "/home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_server.cc",
-  "output": "src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o"
+  "command": "/usr/bin/g++  -isystem /usr/include/opencv4 -g -std=gnu++17 -o CMakeFiles/img_parsing_server_ex.dir/session.cpp.o -c /home/kali/VSCodeProjects/img_parsing_server_ex/src/session.cpp",
+  "file": "/home/kali/VSCodeProjects/img_parsing_server_ex/src/session.cpp",
+  "output": "src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.o"
 }
 ]

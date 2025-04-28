@@ -5,8 +5,7 @@
   CMakeFiles/img_parsing_server_ex.dir/main.cpp.o \
   CMakeFiles/img_parsing_server_ex.dir/parserCmd.cpp.o \
   CMakeFiles/img_parsing_server_ex.dir/server.cpp.o \
-  CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o \
-  CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o \
+  CMakeFiles/img_parsing_server_ex.dir/session.cpp.o \
   /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.10.0 \
   /usr/lib/x86_64-linux-gnu/libopencv_alphamat.so.4.10.0 \
   /usr/lib/x86_64-linux-gnu/libopencv_aruco.so.4.10.0 \
@@ -103,9 +102,7 @@ CMakeFiles/img_parsing_server_ex.dir/parserCmd.cpp.o:
 
 CMakeFiles/img_parsing_server_ex.dir/server.cpp.o:
 
-CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o:
-
-CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o:
+CMakeFiles/img_parsing_server_ex.dir/session.cpp.o:
 
 /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.4.10.0:
 

@@ -4,6 +4,7 @@
 #include "opencv4/opencv2/imgproc.hpp"
 #include <vector>
 #include <stdexcept>
+#include "misc.hpp"
 /**
  * @brief base builder class for creating task sub-classes
  * @details Process method is used to precocess class task
@@ -90,7 +91,7 @@ public:
  */
   void Process()
   {
-    printf("press q to close webcam window");
+    PrintTerminal("press q to close webcam window");
     try
     {
       cv::Mat img;
@@ -108,10 +109,7 @@ public:
         if(ok) break;
       }
     }
-    catch(const std::exception& e)
-    {
-      printf("%s\n", e.what());
-    }
+    catch(const std::exception& e){ throw::std::runtime_error(e.what()); }
   }
 };
 
@@ -138,9 +136,6 @@ public:
       Blur(img);
       bool ok = ShowImg(img);
     }
-    catch(const std::exception& e)
-    {
-      printf("%s\n", e.what());
-    }
+    catch(const std::exception& e){ throw::std::runtime_error(e.what()); }
   }
 };

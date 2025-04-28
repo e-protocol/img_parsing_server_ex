@@ -66,6 +66,20 @@
     "codecvt": "cpp",
     "complex": "cpp",
     "condition_variable": "cpp",
-    "mutex": "cpp"
+    "mutex": "cpp",
+    "fstream": "cpp",
+    "strstream": "cpp",
+    "cfenv": "cpp",
+    "list": "cpp",
+    "set": "cpp",
+    "source_location": "cpp",
+    "shared_mutex": "cpp",
+    "stdfloat": "cpp",
+    "typeindex": "cpp",
+    "valarray": "cpp",
+    "csignal": "cpp",
+    "any": "cpp",
+    "future": "cpp",
+    "*.ipp": "cpp"
   }
 }

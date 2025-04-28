@@ -11,8 +11,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kali/VSCodeProjects/img_parsing_server_ex/src/main.cpp" "src/CMakeFiles/img_parsing_server_ex.dir/main.cpp.o" "gcc" "src/CMakeFiles/img_parsing_server_ex.dir/main.cpp.o.d"
   "/home/kali/VSCodeProjects/img_parsing_server_ex/src/parserCmd.cpp" "src/CMakeFiles/img_parsing_server_ex.dir/parserCmd.cpp.o" "gcc" "src/CMakeFiles/img_parsing_server_ex.dir/parserCmd.cpp.o.d"
   "/home/kali/VSCodeProjects/img_parsing_server_ex/src/server.cpp" "src/CMakeFiles/img_parsing_server_ex.dir/server.cpp.o" "gcc" "src/CMakeFiles/img_parsing_server_ex.dir/server.cpp.o.d"
-  "/home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_message.cc" "src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o" "gcc" "src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_message.cc.o.d"
-  "/home/kali/VSCodeProjects/img_parsing_server_ex/src/thirdparty/http_server/http_server.cc" "src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o" "gcc" "src/CMakeFiles/img_parsing_server_ex.dir/thirdparty/http_server/http_server.cc.o.d"
+  "/home/kali/VSCodeProjects/img_parsing_server_ex/src/session.cpp" "src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.o" "gcc" "src/CMakeFiles/img_parsing_server_ex.dir/session.cpp.o.d"
   "" "build/img_parsing_server_ex" "gcc" "src/CMakeFiles/img_parsing_server_ex.dir/link.d"
   )
 

@@ -1,10 +1,9 @@
 #pragma once
 #include <sstream>
-#include <stdio.h>
 #include <thread>
 #include <vector>
 #include "server.h"
-#define CMD_SIZE 10
+#define CMD_SIZE 8
 
 /**
  * @brief class for parsing terminal commands in separate thread
@@ -16,7 +15,7 @@ class ParserCmd
 	Server* server_ = nullptr;
 	std::thread thread_;
 	const char* cmd_[CMD_SIZE] = { "help", "exit", "clear", "version", "set port", "get port", 
-																"set host", "get host", "start", "stop" };
+																 "start", "stop" };
 public:
 	ParserCmd() = delete;
 	~ParserCmd() { thread_.join(); }

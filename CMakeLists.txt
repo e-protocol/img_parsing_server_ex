@@ -10,9 +10,19 @@ add_subdirectory(src)
 
 find_package(OpenCV REQUIRED)
 if(OpenCV_FOUND)
-  message("!!!Found opencv!!")
   include_directories(${OpenCV_INCLUDE_DIRS})
   target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 else()
   message("!!!!NOT Found opencv!!!")
+endif()
+
+set(BOOST_ROOT /usr/include/boost)
+set(Boost_USE_STATIC_LIBS ON)
+find_package(Boost 1.83 REQUIRED)
+
+
+if(Boost_FOUND)
+   include_directories(${Boost_INCLUDE_DIR})
+else()
+  message("!!!NOT Found boost!!!")
 endif()
