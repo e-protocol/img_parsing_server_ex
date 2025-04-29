@@ -6,11 +6,14 @@
 #include <boost/beast/core.hpp>
 #include <boost/beast/http.hpp>
 #include "log.hpp"
-#include "imgProcess.hpp"
+#include "misc.hpp"
 
 using namespace boost;
 using namespace beast;
 
+/**
+ * @brief class for processing client connections
+ */
 class Session : public std::enable_shared_from_this<Session>, public Log
 {
   std::string ip_;

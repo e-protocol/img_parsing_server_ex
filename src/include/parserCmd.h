@@ -18,7 +18,7 @@ class ParserCmd
 																 "start", "stop" };
 public:
 	ParserCmd() = delete;
-	~ParserCmd() { thread_.join(); }
+	~ParserCmd();
 	ParserCmd(Server* server);
 void parseInput();
 

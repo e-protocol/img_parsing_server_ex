@@ -1,4 +1,5 @@
 #include "include/parserCmd.h"
+#include "include/imgProcess.hpp"
 
 	/**
 	 * @brief Construct a new Parser Cmd object, launched in separate thread on creation
@@ -9,6 +10,11 @@
     PrintVersion();
     thread_ = std::thread(&ParserCmd::parseInput, this);
   }
+
+	/**
+	 * @brief class destructor, wait for thread_ finished
+	 */
+	ParserCmd::~ParserCmd() { thread_.join(); }
 
 /**
  * @brief func to parse input command string

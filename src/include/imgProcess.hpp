@@ -2,8 +2,11 @@
 #include "opencv4/opencv2/objdetect.hpp"
 #include "opencv4/opencv2/highgui.hpp"
 #include "opencv4/opencv2/imgproc.hpp"
+#include "opencv4/opencv2/imgcodecs.hpp"
 #include <vector>
 #include <stdexcept>
+#include <map>
+#include <fstream>
 #include "misc.hpp"
 /**
  * @brief base builder class for creating task sub-classes
@@ -12,10 +15,18 @@
 class BaseDetector
 {
 public:
+  enum CasdaceType
+  {
+    FRONTAL_FACE_DEFAULT,
+    FRONTAL_FACE_ALT,
+    FRONTAL_CAT_FACE,
+    FRONTAL_FACE_ALT2,
+    FRONTAL_FACE_ALT_TREE
+  };
+
   virtual void Blur(cv::Mat& img) = 0;
-  virtual void Recognition(cv::Mat& img) = 0;
-  virtual bool ShowImg(cv::Mat& img) = 0;
-  virtual void Process() = 0;
+  virtual void Recognition(cv::Mat& img, CasdaceType t) = 0;
+  virtual bool ShowFrame(const cv::Mat& img) = 0;
   virtual ~BaseDetector(){}
 };
 
@@ -31,51 +42,67 @@ public:
   /**
    * @brief get processed file as raw data
    */
-  const char* GetImg() { return data_; }
 
-protected:
-  const char* data_ = nullptr;
-
-  void Recognition(cv::Mat& img) override
+  FaceDetector()
   {
-    cv::CascadeClassifier cascade;
-    std::string path = "haarcascade_frontalface_alt.xml";
-    cascade.load(path);
-    DetectAndDraw(img, cascade, 1.0);
+    classifiers_[FRONTAL_FACE_DEFAULT] = "haarcascade_frontalface_default.xml";
+    classifiers_[FRONTAL_FACE_ALT] = "haarcascade_frontalface_alt.xml";
+    classifiers_[FRONTAL_CAT_FACE] = "haarcascade_frontalcatface.xml";
+    classifiers_[FRONTAL_FACE_ALT2] = "haarcascade_frontalface_alt2.xml";
+    classifiers_[FRONTAL_FACE_ALT_TREE] = "haarcascade_frontalface_alt_tree.xml";
   }
 
+protected:
+  std::map<CasdaceType, std::string> classifiers_;
+  std::vector<cv::Rect> faces_;
+
+  /**
+   * @brief method to do object detection
+   */
+  void Recognition(cv::Mat& img, CasdaceType t) override
+  {
+    auto it = classifiers_.find(t);
+    if(it == classifiers_.end()) throw std::range_error("unkonwon classifier");
+    std::string cl_file = it->second;
+    cv::CascadeClassifier cl;
+    cl.load(cl_file);
+    DetectAndDraw(img, cl, 1.0);
+  }
+
+  /**
+   * @brief method to find all objects on frame acording to classifier
+   */
   void DetectAndDraw(cv::Mat& img, cv::CascadeClassifier& cascade, double scale)
   {
     using namespace cv;
-    std::vector<Rect> faces;
-    Mat gray, small_img;
-    cvtColor(img, gray, COLOR_BGR2GRAY);
-    double fx = 1.0 / scale;
-
-    //resize grayscale image before detection
-    resize(gray, small_img, Size(), fx, fx, INTER_LINEAR);
-    equalizeHist(small_img, small_img);
-    cascade.detectMultiScale(small_img, faces, 1.1, 2, 0 | CASCADE_SCALE_IMAGE, Size(50, 50), Size(200, 200));
+    faces_.clear();
+    cascade.detectMultiScale(img, faces_, 1.3, 5);
 
     //draw rectangle on detected faces
-    for(size_t i = 0; i < faces.size(); ++i)
+    for(size_t i = 0; i < faces_.size(); ++i)
     {
-      Rect r = faces[i];
+      Rect r = faces_[i];
       Scalar color = Scalar(250, 0, 0);
       rectangle(img, r, color, 3, 8, 0);
     }
   }
 
-  void Blur(cv::Mat& img)
+  /**
+   * @brief method to blur objects
+   */
+  void Blur(cv::Mat& img) override
   {
-    
+    for(auto& r : faces_)
+      cv::GaussianBlur(img(r), img(r), cv::Size(0, 0), 20, 0);
   }
 
-  bool ShowImg(cv::Mat& img)
+  /**
+   * @brief method to show frame in new window
+   */
+  bool ShowFrame(const cv::Mat& img) override
   {
     cv::imshow("Display Window", img);
-		int key = cv::waitKey('q');
-    return key == 'q';
+    return cv::waitKey('q') == 'q';
   }
 };
 
@@ -87,11 +114,10 @@ class FaceDetectorWebcam : public FaceDetector
 {
 public:
 /**
- * @brief process face recognition from webcam stream in constructor
+ * @brief process face recognition from webcam stream
  */
-  void Process()
+  FaceDetectorWebcam(CasdaceType t)
   {
-    PrintTerminal("press q to close webcam window");
     try
     {
       cv::Mat img;
@@ -101,13 +127,14 @@ public:
       if(!capture.isOpened())
         throw std::runtime_error("webcam error");
 
+      PrintTerminal("press q to close Display Window");
       while(true)
       {
         capture >> img;
-        Recognition(img);
-        bool ok = ShowImg(img);
-        if(ok) break;
+        Recognition(img, t);
+        if(ShowFrame(img)) break;
       }
+      cv::destroyWindow("Display Window");
     }
     catch(const std::exception& e){ throw::std::runtime_error(e.what()); }
   }
@@ -120,22 +147,26 @@ public:
  */
 class FaceDetectorImg : public FaceDetector
 {
-  std::string& path_;
 public:
-  FaceDetectorImg(std::string& path) : path_(path){}
+
 /**
- * @brief process face recognition and blur from image in constructor
+ * @brief process face recognition from saved img
  */
-  void Process() override
+  FaceDetectorImg(const std::string& path, const std::string& filename, CasdaceType t) 
   {
-    if(path_.empty()) return;
-		try
+    try
     {
-      cv::Mat img = cv::imread(path_, cv::IMREAD_COLOR);
-      Recognition(img);
+      if(path.empty() || filename.empty()) throw std::runtime_error("Invalid path or filename");
+      cv::Mat img = cv::imread(path + "/" + filename, cv::IMREAD_COLOR);
+      Recognition(img, t);
       Blur(img);
-      bool ok = ShowImg(img);
+      Save(img, path, filename);
     }
     catch(const std::exception& e){ throw::std::runtime_error(e.what()); }
+  }
+
+  void Save(cv::Mat& img, const std::string& path, const std::string& filename)
+  {
+    cv::imwrite(path + "/" + filename, img);
   }
 };

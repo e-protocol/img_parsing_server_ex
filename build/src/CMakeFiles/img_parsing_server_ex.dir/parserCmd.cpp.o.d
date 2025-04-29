@@ -1401,6 +1401,7 @@ src/CMakeFiles/img_parsing_server_ex.dir/parserCmd.cpp.o: \
  /usr/include/c++/14/bits/locale_conv.h /usr/include/c++/14/iomanip \
  /usr/include/c++/14/bits/quoted_string.h /usr/include/c++/14/codecvt \
  /usr/include/c++/14/bits/fs_dir.h /usr/include/c++/14/bits/fs_ops.h \
+ /home/kali/VSCodeProjects/img_parsing_server_ex/src/include/misc.hpp \
  /home/kali/VSCodeProjects/img_parsing_server_ex/src/include/imgProcess.hpp \
  /usr/include/opencv4/opencv2/objdetect.hpp \
  /usr/include/opencv4/opencv2/core.hpp \
@@ -1450,4 +1451,6 @@ src/CMakeFiles/img_parsing_server_ex.dir/parserCmd.cpp.o: \
  /usr/include/opencv4/opencv2/imgproc.hpp \
  /usr/include/opencv4/opencv2/imgproc/segmentation.hpp \
  /usr/include/opencv4/opencv2/imgproc.hpp \
- /home/kali/VSCodeProjects/img_parsing_server_ex/src/include/misc.hpp
+ /usr/include/opencv4/opencv2/imgcodecs.hpp /usr/include/c++/14/map \
+ /usr/include/c++/14/bits/stl_tree.h /usr/include/c++/14/bits/stl_map.h \
+ /usr/include/c++/14/bits/stl_multimap.h

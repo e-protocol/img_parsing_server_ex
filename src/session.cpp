@@ -1,5 +1,6 @@
 #include "include/session.h"
 #include "include/fileManager.hpp"
+#include "include/imgProcess.hpp"
 
   /**
    * @brief Session constructor
@@ -99,35 +100,33 @@
     std::string target(req.target());
     http::response<http::string_body> res;
     res.set(http::field::server, BOOST_BEAST_VERSION_STRING);
-    res.set(http::field::content_type, "text/plain");
+    res.set(http::field::content_type, "image/jpeg");
     res.keep_alive(req.keep_alive());
-    res.result(http::status::not_found);
-    res.body() = "Error: invalid method or target\n";
 
     if(req.method() != http::verb::post)
-      return res;
-
-    res.result(http::status::ok);
-
-    /*if(target == "/info")
-      res.body() = "Server status ok";
-    else if(target == "/log")
-      res.body() = GetLog();
-    else if(target == "/upload")*/
     {
-      try
-      {
-        FileManager::processFile(std::move(req));
-      }
-      catch(const std::exception& e)
-      {
-        res.body() = "Failed uploading\n";
-        WriteLog("Failed uploading from " + ip_ + " error: " + e.what());
-      }
-      
-      res.body() = "File uploaded\n";
+      res.body() = "Error: invalid method\n";
+      return res;
     }
 
+    try
+    {
+      std::string filename;
+      FileManager::processFile(req, filename);
+      FaceDetectorImg imd("/tmp", filename, BaseDetector::FRONTAL_FACE_DEFAULT);
+      std::string buffer;
+      FileManager::ReadFile("/tmp", filename, buffer);
+      res.body() = buffer;
+      res.content_length(buffer.size());
+      res.set("filename", filename);
+    }
+    catch(const std::exception& e)
+    {
+      res.body() = "Failed uploading\n";
+      WriteLog("Failed uploading from " + ip_ + " error: " + e.what());
+    }
+
+    res.result(http::status::ok);
     res.prepare_payload();
     return res;
   }
