@@ -23,3 +23,4 @@ for better performance. Because using filesystem to make 2 file write operations
 To achieve this required some kind of algorithm to retrieve image meta-data to locate where raw data bytes starts and ends.
 
 P.S. Tested with .jpg image, resolution 1280x720
+Debian x64, Boost 1.83, C++17, OpenCV 4.10
