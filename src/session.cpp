@@ -113,12 +113,14 @@
     {
       std::string filename;
       FileManager::processFile(req, filename);
-      FaceDetectorImg imd("/tmp", filename, BaseDetector::FRONTAL_FACE_DEFAULT);
+      std::string coordinates;
+      FaceDetectorImg imd("/tmp", filename, coordinates, BaseDetector::FRONTAL_FACE_DEFAULT);
       std::string buffer;
       FileManager::ReadFile("/tmp", filename, buffer);
       res.body() = buffer;
       res.content_length(buffer.size());
       res.set("filename", filename);
+      res.set("bbx", coordinates);
     }
     catch(const std::exception& e)
     {

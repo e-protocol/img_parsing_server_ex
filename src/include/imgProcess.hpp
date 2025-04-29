@@ -7,6 +7,7 @@
 #include <stdexcept>
 #include <map>
 #include <fstream>
+#include <string>
 #include "misc.hpp"
 /**
  * @brief base builder class for creating task sub-classes
@@ -152,7 +153,7 @@ public:
 /**
  * @brief process face recognition from saved img
  */
-  FaceDetectorImg(const std::string& path, const std::string& filename, CasdaceType t) 
+  FaceDetectorImg(const std::string& path, const std::string& filename, std::string& coordinates, CasdaceType t) 
   {
     try
     {
@@ -161,12 +162,34 @@ public:
       Recognition(img, t);
       Blur(img);
       Save(img, path, filename);
+      CoordinatesToString(coordinates);
     }
     catch(const std::exception& e){ throw::std::runtime_error(e.what()); }
   }
 
+  /**
+   * @brief write cv::Mat to tmp file
+   */
   void Save(cv::Mat& img, const std::string& path, const std::string& filename)
   {
     cv::imwrite(path + "/" + filename, img);
+  }
+
+  /**
+   * @brief save objects coordinates to string
+   */
+  void CoordinatesToString(std::string& coordinates)
+  {
+    for(size_t i = 0; i < faces_.size(); ++i)
+    {
+      auto& r = faces_[i];
+      //top left Point
+      coordinates += "{{" + std::to_string(r.tl().x) + "," 
+                  + std::to_string(r.tl().y) + "},"; 
+      //bottom right Point
+      coordinates += "{" + std::to_string(r.br().x) + "," 
+                  + std::to_string(r.br().y) + "}}"; 
+      if(i != faces_.size() - 1) coordinates += ',';
+    }
   }
 };

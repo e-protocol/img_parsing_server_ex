@@ -1,3 +1,13 @@
-28/04/2025 20:07:4 Server start. Listen port: 8080
-28/04/2025 20:07:4 Connected ip: 127.0.0.1
-28/04/2025 20:07:4 Disconected ip: 127.0.0.1
+28/04/2025 20:52:1 Server start. Listen port: 8080
+28/04/2025 20:53:1 Connected ip: 127.0.0.1
+28/04/2025 20:53:1 Disconected ip: 127.0.0.1
+28/04/2025 20:54:2 Connected ip: 127.0.0.1
+28/04/2025 20:54:2 Disconected ip: 127.0.0.1
+28/04/2025 20:54:4 Connected ip: 127.0.0.1
+28/04/2025 20:54:4 Disconected ip: 127.0.0.1
+28/04/2025 20:55:0 Connected ip: 127.0.0.1
+28/04/2025 20:55:0 Disconected ip: 127.0.0.1
+28/04/2025 20:55:2 Connected ip: 127.0.0.1
+28/04/2025 20:55:2 Disconected ip: 127.0.0.1
+28/04/2025 20:55:3 Connected ip: 127.0.0.1
+28/04/2025 20:55:3 Disconected ip: 127.0.0.1
