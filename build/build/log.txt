@@ -1,4 +1,0 @@
-30/04/2025 20:59:5 Server start. Listen port: 8080
-30/04/2025 21:00:0 Connected ip: 127.0.0.1
-30/04/2025 21:00:0 Failed uploading from 127.0.0.1 error: request doesn't contain "filename:"
-30/04/2025 21:00:0 Disconected ip: 127.0.0.1
