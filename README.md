@@ -20,7 +20,7 @@ NOTE! The http request should be POST and contains "filename:" field in header
 specified by target machine
 2) Server saves image as temp file in /tmp directory. Need to get rid of it and pass raw bytes payload directly to openCV operation modules
 for better performance. Because using filesystem to make 2 file write operations and 2 read operations is long enough.
-To achieve this required some kind of algorithm to retrieve image meta-data to locate where raw data bytes starts and ends.
+To achieve this required some kind of algorithm to retrieve image meta-data to locate where raw data bytes starts and ends
 
 P.S. Tested with .jpg image, resolution 1280x720
 Debian x64, Boost 1.83, C++17, OpenCV 4.10
