@@ -1,4 +1,5 @@
 #Ignore list
 
 build/*
-.gitignore.*
+.vscode/
+.gitignore
