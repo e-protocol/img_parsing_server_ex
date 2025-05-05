@@ -1,4 +1,4 @@
-# Ignore List
+#Ignore list
 
-build-*
-.gitignore-*
+build/*
+.gitignore.*
